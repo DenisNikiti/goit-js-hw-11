@@ -1,2 +1,14 @@
-@import './common';
-@import './example';
+.search-form{
+    display: flex;
+    
+    justify-content: center;
+   
+}
+
+.search-form button {
+    margin-left: 10px;
+}
+
+.is-hiden{
+    display: none;
+}
