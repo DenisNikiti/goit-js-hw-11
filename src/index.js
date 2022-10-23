@@ -48,7 +48,7 @@ class NewAPIGalyry {
 
   const APIGalyry = new NewAPIGalyry()
 
-console.log(galleryEl)
+
 
  async function onformsubmit(e) {
    e.preventDefault()
@@ -83,9 +83,10 @@ function makeGaleruEl(el) {
 
 
   function makegalery(data) {
-        //  if (data !==  []) {
-        //     return  Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.")
-        //  }
+         if (data.length === 0) {
+            return  Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.")
+         }
+    
    return data.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => { 
 
         return `<div class="photo-card">
