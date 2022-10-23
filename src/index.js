@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 const axios = require('axios').default;
 
 const formEl = document.querySelector(".search-form")
@@ -47,11 +48,12 @@ class NewAPIGalyry {
 
   const APIGalyry = new NewAPIGalyry()
 
-
+console.log(galleryEl)
 
  async function onformsubmit(e) {
-    e.preventDefault()
-    galleryEl.innerHTML = ""
+   e.preventDefault()
+   
+    galleryEl.innerHTML = " "
     search = formEl[0].value
        APIGalyry.resetPage()        
      const elements = await APIGalyry.fetch(search)
@@ -76,14 +78,14 @@ async function loadMore() {
 
    
 function makeGaleruEl(el) {
-     galleryEl.insertAdjacentHTML('beforebegin',makegalery(el))
+     galleryEl.insertAdjacentHTML('afterbegin', makegalery(el))
  }
 
 
   function makegalery(data) {
-         if (data !==  []) {
-            return  Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.")
-         }
+        //  if (data !==  []) {
+        //     return  Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.")
+        //  }
    return data.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => { 
 
         return `<div class="photo-card">
