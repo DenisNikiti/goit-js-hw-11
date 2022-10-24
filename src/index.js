@@ -70,15 +70,18 @@ class NewAPIGalyry {
 async function loadMore() {
     APIGalyry.incrementpage()
     const elements = await APIGalyry.fetch(search)
-    makeGaleruEl (elements)
+   makeGaleruElMore(elements)
     
 }
 
- 
+function makeGaleruElMore(el) {
+       galleryEl.insertAdjacentElement("beforeend", makegalery(el))
+}
 
    
-function makeGaleruEl(el) {
-     galleryEl.insertAdjacentHTML('afterbegin', makegalery(el))
+  function makeGaleruEl(el) {
+  galleryEl.innerHTML = makegalery(el)
+  
  }
 
 
@@ -108,6 +111,6 @@ function makeGaleruEl(el) {
     </p>
   </div>
 </div>`
-       }  ).join("")
+       }).join("")
     
   }
