@@ -82,6 +82,8 @@ function makeGaleruEl(el) {
  }
 
 
+    
+
   function makegalery(data) {
          if (data.length === 0) {
             return  Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.")
