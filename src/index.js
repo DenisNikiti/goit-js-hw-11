@@ -26,9 +26,9 @@ class NewAPIGalyry {
     fetch(search) {
         const url = `https://pixabay.com/api/?key=30641598-d39f2f73d719eac54648ccf68&q=${search}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=40`
         return axios.get(url).then(r => r.data.hits).then(r => {
-            loadmoreButtinEl.classList.remove("is-hiden")
+            
             return r
-        })
+        }).catch()
     }
           
     incrementpage() {
@@ -53,13 +53,17 @@ class NewAPIGalyry {
  async function onformsubmit(e) {
    e.preventDefault()
    
-    galleryEl.innerHTML = " "
-    search = formEl[0].value
-       APIGalyry.resetPage()        
-     const elements = await APIGalyry.fetch(search)
+   search = formEl[0].value
+    APIGalyry.resetPage() 
+    const elements = await APIGalyry.fetch(search)
+             
+      if (elements.length === 0) {
+        return  Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.")
+      }           
+   
           makeGaleruEl (elements)
         
-        
+        loadmoreButtinEl.classList.remove("is-hiden")
        
     }
 
