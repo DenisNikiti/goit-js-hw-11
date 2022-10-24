@@ -75,7 +75,7 @@ async function loadMore() {
 }
 
 function makeGaleruElMore(el) {
-       galleryEl.insertAdjacentElement("beforeend", makegalery(el))
+      galleryEl.insertAdjacentHTML('beforeend', makegalery(el))
 }
 
    
