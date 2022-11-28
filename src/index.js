@@ -7,8 +7,9 @@ const galleryEl = document.querySelector(".gallery")
 
 const loadmoreButtinEl = document.querySelector(".load-more")
  
-
+   
     formEl.addEventListener("submit", onformsubmit)
+
 
 
 
@@ -92,9 +93,7 @@ function makeGaleruElMore(el) {
     
 
   function makegalery(data) {
-         if (data.length === 0) {
-            return  Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.")
-         }
+         
     
    return data.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => { 
 
